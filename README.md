@@ -1,24 +1,28 @@
-# FiveM-Racing-Server
-A Simple FiveM Racing Experience Server with Events, Player Lobbies, Vehicle Shop &amp; More
+# FiveM Racing Server
 
-# Important
-### This server is still under developing and not ready yet i'll update the resource and when the final release will come i'll create one
+Welcome to the FiveM Racing Server, where you can experience thrilling races, join player lobbies, explore our vehicle shop, and much more!
 
-# Features
-- Lobby System [ Players are able to see thei selected vehicle if have one and interact with them using a side bar actions to choose between several thing such as Online Racing, Freeroam, Garage, Vehicleshop and more ]
-- Player Information HUD [ Player can see their progress like Money, Level, Xp, Crew and more ]
-- Crew System [ Players are able to create their own Crew and contest with other crews in battles such as | Capture The Flag | Demolition | Last Standing ]
-- Vehicle shop [ Players are able to purchase & test new vehicles that you can configure + Addon Vehicles if wanted ]
-- Garage System [ Player can interact with their vehicles to Upgrade, Customize or FIX them using a smooth interactive Garage System ]
-- Freeroam [ Players have the abillity to freeroam at the map with other players and have interactions with them such as Racing Battles, Carr meetups and more ]
-- Online Racing [ A various of online racing events hosted by the server where the players can join to race between others and compete there to take money prices and more ]
-- Party System [ A party system that player can create a channel with password and invite other players that will can communicate through voice system and see each other on the map and compete in diferent events as a team ]
-- More Feauters Coming soon...
+## Important Note
+**Please be aware that this server is currently under development and is not yet ready for final release. We will keep updating the resources, and once everything is polished, we'll announce the official release. Stay tuned!**
 
-# Configuration
-- All the server contains configuration files in every script thats called `config.lua` or in case of the UI `config.json` or `config.js`
+## Key Features
 
-# Installation
-- Download the release and make sure you extract the folder and place it in the `resources` area
-- Read CFX Documentation on how to create a FiveM Server [https://docs.fivem.net/docs/server-manual/setting-up-a-server/]
-- After Setting up your server pick `Existing Server Data` and select the path that your serouses needs to be
+- **Lobby System:** Choose your vehicle and engage in various activities such as online racing, freeroam exploration, garage customization, and more.
+- **Player Information HUD:** Track your progress, including money, level, experience points, crew affiliation, and more.
+- **Crew System:** Form your own crew and engage in epic battles like Capture The Flag, Demolition Derbies, Last Man Standing, and more.
+- **Vehicle Shop:** Purchase and test drive new vehicles, including customizable options and addon vehicles.
+- **Garage System:** Customize, upgrade, and repair your vehicles with our interactive garage system.
+- **Freeroam:** Explore the map freely, participate in racing battles, car meetups, and interact with other players.
+- **Online Racing Events:** Compete in various online racing events hosted by the server to win money prizes and more.
+- **Party System:** Create private channels with passwords, invite friends, communicate via voice chat, and participate in team events.
+
+*More exciting features coming soon!*
+
+## Configuration
+- Each script includes a configuration file named `config.lua`, while UI elements may have `config.json` or `config.js` files for customization.
+
+## Installation
+1. Download the latest release and extract the folder.
+2. Place the extracted folder in the `resources` directory of your FiveM server.
+3. Refer to the [CFX Documentation](https://docs.fivem.net/docs/server-manual/setting-up-a-server/) for guidance on setting up your FiveM server.
+4. After setting up your server, choose `Existing Server Data` and select the path where your resources need to be located.
