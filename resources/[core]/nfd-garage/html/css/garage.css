@@ -1,0 +1,82 @@
+body,
+html {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: 'Arial', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#garage-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.screen {
+    display: block;
+    padding: 20px;
+}
+
+#button-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 20px;
+}
+
+.menu-option {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    font-weight: bold;
+    margin: 20px;
+    text-transform: uppercase;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    cursor: pointer;
+    display: inline-block;
+    width: 120px;
+    height: 120px;
+    text-align: center;
+    font-size: 1em;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-option:hover {
+    background-color: #800080;
+}
+
+.menu-option i {
+    transition: visibility 0.3s, opacity 0.3s ease-in-out;
+}
+
+#actions {
+    position: absolute;
+    bottom: 10px;
+    width: 100%;
+}
+
+.menu-option .button-label {
+    display: none;
+    visibility: hidden;
+}
+
+.menu-option:hover .button-label {
+    display: inline;
+    visibility: visible;
+}
+
+.menu-option:hover i {
+    display: none;
+    visibility: hidden;
+}

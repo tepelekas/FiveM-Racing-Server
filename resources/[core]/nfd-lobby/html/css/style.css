@@ -1,0 +1,125 @@
+body {
+    font-family: 'Arial', sans-serif;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    margin: 0;
+}
+
+#buttons_container {
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 200px;
+}
+
+button {
+    background-color: #000;
+    color: #fff;
+    padding: 20px 37px;
+    text-align: left;
+    font-size: 18px;
+    border: 1px solid #800080;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+button i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+button:hover {
+    background-color: #222;
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+#playerInfo {
+    display: flex;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#mugshotContainer,
+#crewInfo,
+#moneyInfo {
+    margin-right: 10px;
+}
+
+#mugshot {
+    width: 50px;
+    height: auto;
+    border-radius: 50%;
+}
+
+#crewInfo {
+    position: relative;
+    flex-direction: column;
+}
+
+#crewName {
+    display: block;
+    position: absolute;
+    top: calc(100% + 15px);
+    left: 50%;
+    transform: translateX(-50%) scale(0);
+    transform-origin: bottom center;
+    white-space: nowrap;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 3px;
+    margin-bottom: 5px;
+    transition: transform 0.3s ease-in-out;
+    z-index: 10;
+    pointer-events: none;
+}
+
+#crewInfo:hover #crewName {
+    display: block;
+    transform: translateX(-50%) scale(1);
+}
+
+#crewInfo:hover #crewName::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent rgba(0, 0, 0, 0.7) transparent;
+    transform: translateX(-50%) translateY(0);
+    margin-top: -10px;
+    z-index: 1;
+}
+
+#crewEmblem {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+#crewInfo:hover #crewEmblem {
+    transform: none;
+}
+
+#moneyInfo {
+    font-size: 18px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
+}

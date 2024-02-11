@@ -1,0 +1,43 @@
+Config.DiscordLogs = {
+    Webhooks = {
+        default =          '',
+        chat =             '',
+        user_actions =     '',
+        Resources =        '',
+        paycheck =         '',
+        report =           '',
+        armory =           '',
+        boss =             '',
+        crafting_table =   '',
+        harvest =          '',
+        job_outfit =       '',
+        job_shop =         '',
+        market =           '',
+        permanent_garage = '',
+        safe =             '',
+        shop =             '',
+        stash =            '',
+        teleport =         '',
+        wardrobe =         '',
+        weapon_upgrader =  '',
+        process =          '',
+        ban_system =       '',
+        battlepass =       '',
+        connection =       '',
+    },
+
+    Colors = { -- https://www.spycolor.com/
+        default = 14423100,
+        lightblue = 3956991,
+        blue = 255,
+        red = 16711680,
+        white = 16777215,
+        black = 0,
+        gray = 2697513,
+        orange = 16744192,
+        yellow = 16776960,
+        pink = 16761035,
+        green = 65280,
+        lightgreen = 65309
+    }
+}
