@@ -13,11 +13,7 @@ function CreateDatabasePlayer(playerId, identifier, license, group, money, name,
         money = money,
         group = group,
         identifier = identifier,
-<<<<<<< HEAD
         name = GetPlayerName(playerId),
-=======
-        name = name,
->>>>>>> origin/beta
         source = playerId,
         variables = {},
         metadata = metadata,
@@ -28,14 +24,7 @@ function CreateDatabasePlayer(playerId, identifier, license, group, money, name,
 	_ExecuteCommand(('add_principal identifier.%s group.%s'):format(self.license, self.group))
 
 	local stateBag = Player(self.source).state
-<<<<<<< HEAD
 	stateBag:set("group", self.group, true)
-=======
-	stateBag:set("identifier", self.identifier, true)
-	stateBag:set("license", self.license, true)
-	stateBag:set("group", self.group, true)
-	stateBag:set("name", self.name, true)
->>>>>>> origin/beta
 	stateBag:set("metadata", self.metadata, true)
 
 	function self.triggerEvent(eventName, ...)
@@ -138,14 +127,6 @@ function CreateDatabasePlayer(playerId, identifier, license, group, money, name,
         return self.name
     end
 
-<<<<<<< HEAD
-=======
-    function self.setName(newName)
-        self.name = newName
-        Player(self.source).state:set("name", self.name, true)
-    end
-
->>>>>>> origin/beta
     function self.showNotification(msg, notifyType, length)
         self.triggerEvent("nfd:client:showNotification", msg, notifyType, length)
     end

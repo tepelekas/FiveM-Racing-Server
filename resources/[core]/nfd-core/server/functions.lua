@@ -454,11 +454,7 @@ function Core.SavePlayer(Player, cb)
 		parameters,
 		function(affectedRows)
 			if affectedRows == 1 then
-<<<<<<< HEAD
 				print(('[^2INFO^7] Saved player ^5"%s^7"'):format(Player.getName()))
-=======
-				print(('[^2INFO^7] Saved player ^5"%s^7"'):format(Player.name))
->>>>>>> origin/beta
 				TriggerEvent("nfd:server:playerSaved", Player.source, Player)
 			end
 			if cb then

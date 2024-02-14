@@ -1,23 +1,14 @@
-<<<<<<< HEAD
 -- Function to check if player is loaded
-=======
->>>>>>> origin/beta
 function NFD.Functions.IsPlayerLoaded()
     return NFD.PlayerLoaded
 end
 
-<<<<<<< HEAD
 -- Function to get player data
-=======
->>>>>>> origin/beta
 function NFD.Functions.GetPlayerData()
     return NFD.PlayerData
 end
 
-<<<<<<< HEAD
 -- Function to set player data
-=======
->>>>>>> origin/beta
 function NFD.Functions.SetPlayerData(key, val)
     local current = NFD.PlayerData[key]
     NFD.PlayerData[key] = val
@@ -28,10 +19,7 @@ function NFD.Functions.SetPlayerData(key, val)
     end
 end
 
-<<<<<<< HEAD
 -- Function to show notification
-=======
->>>>>>> origin/beta
 function NFD.Functions.ShowNotification(message, notifyType, length)
     -- if GetResourceState("ox_lib") ~= "missing" then
     --     message = message or "Notification"
@@ -43,10 +31,7 @@ function NFD.Functions.ShowNotification(message, notifyType, length)
     -- print("[^1ERROR^7] ^5ox_lib^7 is Missing!")
 end
 
-<<<<<<< HEAD
 -- Function to show advanced notification
-=======
->>>>>>> origin/beta
 function NFD.Functions.ShowAdvancedNotification(sender, subject, msg, textureDict, iconType, flash, saveToBrief, hudColorIndex)
     if saveToBrief == nil then
         saveToBrief = true
@@ -60,10 +45,7 @@ function NFD.Functions.ShowAdvancedNotification(sender, subject, msg, textureDic
     EndTextCommandThefeedPostTicker(flash or false, saveToBrief)
 end
 
-<<<<<<< HEAD
 -- Function to show help notification
-=======
->>>>>>> origin/beta
 function NFD.Functions.ShowHelpNotification(msg, thisFrame, beep, duration)
     AddTextEntry('nfdHelpNotification', msg)
 
@@ -78,10 +60,7 @@ function NFD.Functions.ShowHelpNotification(msg, thisFrame, beep, duration)
     end
 end
 
-<<<<<<< HEAD
 -- Function to show floating help notification
-=======
->>>>>>> origin/beta
 function NFD.Functions.ShowFloatingHelpNotification(msg, coords)
     AddTextEntry('nfdFloatingHelpNotification', msg)
     SetFloatingHelpTextWorldPosition(1, coords)
@@ -90,133 +69,7 @@ function NFD.Functions.ShowFloatingHelpNotification(msg, coords)
     EndTextCommandDisplayHelp(2, false, false, -1)
 end
 
-<<<<<<< HEAD
 -- Function to spawn player
-=======
--- function NFD.Functions.FreezePlayer(id, freeze)
---     local player = id
---     local ped = GetPlayerPed(player)
-    
---     SetPlayerControl(player, not freeze, 2)
-
---     if not freeze then
---         if not IsEntityVisible(ped) then
---             SetEntityVisible(ped, true)
---         end
-
---         if not IsPedInAnyVehicle(ped) then
---             SetEntityCollision(ped, true)
---         end
-
---         FreezeEntityPosition(ped, false)
---         SetPlayerInvincible(player, false)
---     else
---         if IsEntityVisible(ped) then
---             SetEntityVisible(ped, false)
---         end
-
---         SetEntityCollision(ped, false)
---         FreezeEntityPosition(ped, true)
---         SetPlayerInvincible(player, true)
-
---         if not IsPedFatallyInjured(ped) then
---             ClearPedTasksImmediately(ped)
---         end
---     end
--- end
-
--- local spawnLock = false -- To prevent trying to spawn multiple times
--- local spawn = Config.DefaultSpawnPoint -- get the spawn from the config
--- -- spawns the current player at a certain spawn point index (or a random one, for that matter)
--- function NFD.Functions.SpawnPlayer()
---     if spawnLock then return end
-
---     spawnLock = true
-
---     if not spawn.skipFade then
---         DoScreenFadeOut(500)
-
---         while not IsScreenFadedOut() do
---             Wait(0)
---         end
---     end
-
---     -- validate the index
---     if not spawn then
---         Citizen.Trace("tried to spawn at an invalid spawn index\n")
-
---         spawnLock = false
---         return
---     end
-
---     -- freeze the local player
---     NFD.Functions.FreezePlayer(PlayerId(), true)
-
---     -- if the spawn has a model set
---     if spawn.model then
---         RequestModel(spawn.model)
-
---         -- load the model for this spawn
---         while not HasModelLoaded(spawn.model) do
---             RequestModel(spawn.model)
---             Wait(0)
---         end
-
---         if IsModelInCdimage(spawn.model) and IsModelValid(spawn.model) then
---             SetPlayerModel(PlayerId(), spawn.model)
---             SetPedDefaultComponentVariation(GetPlayerPed(PlayerId()))
---         end
-
---         -- change the player model
---         SetPlayerModel(PlayerId(), spawn.model)
-
---         -- release the player model
---         SetModelAsNoLongerNeeded(spawn.model)
---     end
-
---     -- preload collisions for the spawnpoint
---     RequestCollisionAtCoord(spawn.x, spawn.y, spawn.z)
-
---     -- spawn the player
---     local ped = PlayerPedId()
-
---     -- V requires setting coords as well
---     SetEntityCoordsNoOffset(ped, spawn.x, spawn.y, spawn.z, false, false, false, true)
-
---     NetworkResurrectLocalPlayer(spawn.x, spawn.y, spawn.z, spawn.heading, true, true, false)
-
---     -- gamelogic-style cleanup stuff
---     ClearPedTasksImmediately(ped)
---     RemoveAllPedWeapons(ped)
---     ClearPlayerWantedLevel(PlayerId())
-
---     local time = GetGameTimer()
-
---     while (not HasCollisionLoadedAroundEntity(ped) and (GetGameTimer() - time) < 5000) do
---         Wait(0)
---     end
-
---     ShutdownLoadingScreen()
---     ShutdownLoadingScreenNui()
-
---     -- and unfreeze the player
---     NFD.Functions.FreezePlayer(PlayerId(), false)
-
---     TriggerServerEvent('nfd:server:playerJoined')
-
---     if IsScreenFadedOut() then
---         Wait(500)
---         DoScreenFadeIn(500)
-
---         while not IsScreenFadedIn() do
---             Wait(0)
---         end
---     end
-
---     spawnLock = false
--- end
-
->>>>>>> origin/beta
 function NFD.Functions.SpawnPlayer(skin, coords, cb)
     local p = promise.new()
 
@@ -243,10 +96,7 @@ function NFD.Functions.SpawnPlayer(skin, coords, cb)
     cb()
 end
 
-<<<<<<< HEAD
 -- Function to get ped mugshot
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.GetPedMugshot(ped, transparent)
     if not DoesEntityExist(ped) then return end
     local mugshot = transparent and RegisterPedheadshotTransparent(ped) or RegisterPedheadshot(ped)
@@ -258,10 +108,7 @@ function NFD.Functions.Game.GetPedMugshot(ped, transparent)
     return mugshot, GetPedheadshotTxdString(mugshot)
 end
 
-<<<<<<< HEAD
 -- Function to teleport entity
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.Teleport(entity, coords, cb)
     local vector = type(coords) == "vector4" and coords or type(coords) == "vector3" and vector4(coords, 0.0) or vec(coords.x, coords.y, coords.z, coords.heading or 0.0)
 
@@ -280,10 +127,7 @@ function NFD.Functions.Game.Teleport(entity, coords, cb)
     end
 end
 
-<<<<<<< HEAD
 -- Function to spawn object
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.SpawnObject(object, coords, cb, networked)
     networked = networked == nil and true or networked
 
@@ -299,36 +143,24 @@ function NFD.Functions.Game.SpawnObject(object, coords, cb, networked)
     end)
 end
 
-<<<<<<< HEAD
 -- Function to spawn local object
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.SpawnLocalObject(object, coords, cb)
     NFD.Functions.Game.SpawnObject(object, coords, cb, false)
 end
 
-<<<<<<< HEAD
 -- Function to delete entity
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.DeleteVehicle(vehicle)
     SetEntityAsMissionEntity(vehicle, true, true)
     DeleteVehicle(vehicle)
 end
 
-<<<<<<< HEAD
 -- Function to delete object
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.DeleteObject(object)
     SetEntityAsMissionEntity(object, false, true)
     DeleteObject(object)
 end
 
-<<<<<<< HEAD
 -- Function to spawn vehicle
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.SpawnVehicle(vehicleModel, coords, heading, cb, networked)
     local model = type(vehicleModel) == 'number' and vehicleModel or joaat(vehicleModel)
     local vector = type(coords) == "vector3" and coords or vec(coords.x, coords.y, coords.z)
@@ -371,18 +203,12 @@ function NFD.Functions.Game.SpawnVehicle(vehicleModel, coords, heading, cb, netw
     end)
 end
 
-<<<<<<< HEAD
 -- Function to spawn local vehicle
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.SpawnLocalVehicle(vehicle, coords, heading, cb)
     NFD.Functions.Game.SpawnVehicle(vehicle, coords, heading, cb, false)
 end
 
-<<<<<<< HEAD
 -- Function to check if vehicle is empty
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.IsVehicleEmpty(vehicle)
     local passengers = GetVehicleNumberOfPassengers(vehicle)
     local driverSeatFree = IsVehicleSeatFree(vehicle, -1)
@@ -390,18 +216,12 @@ function NFD.Functions.Game.IsVehicleEmpty(vehicle)
     return passengers == 0 and driverSeatFree
 end
 
-<<<<<<< HEAD
 -- Functions to get entities
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.GetObjects() -- Leave the function for compatibility
     return GetGamePool('CObject')
 end
 
-<<<<<<< HEAD
 -- Function to get peds
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.GetPeds(onlyOtherPeds)
     local pool = GetGamePool("CPed")
 
@@ -418,18 +238,12 @@ function NFD.Functions.Game.GetPeds(onlyOtherPeds)
     return pool
 end
 
-<<<<<<< HEAD
 -- Function to get vehicles
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.GetVehicles() -- Leave the function for compatibility
     return GetGamePool('CVehicle')
 end
 
-<<<<<<< HEAD
 -- Functions to get game players
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.GetPlayers(onlyOtherPlayers, returnKeyValue, returnPeds)
     local players, myPlayer = {}, PlayerId()
     local active = GetActivePlayers()
@@ -450,10 +264,7 @@ function NFD.Functions.Game.GetPlayers(onlyOtherPlayers, returnKeyValue, returnP
     return players
 end
 
-<<<<<<< HEAD
 -- Functions to get closest entity
-=======
->>>>>>> origin/beta
 function NFD.Functions.Game.GetClosestObject(coords, modelFilter)
     return NFD.Functions.Game.GetClosestEntity(NFD.Functions.Game.GetObjects(), false, coords, modelFilter)
 end

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 local lastVehicle = nil
 
 local function WaitForVehicleToLoad(modelHash)
@@ -30,16 +29,11 @@ local function DeleteDisplayVehicleInsideShop()
 		end
 	end
 end
-=======
-local NFD = exports['nfd-core']:getCoreObject()
-local Vehicles = NFD.Shared.Functions.GetConfig().Vehicles
->>>>>>> origin/beta
 
 RegisterNUICallback("openVehicleshop", function(data, cb)
     SetNuiFocus(true, true)
     SendNUIMessage({
         action = data.action,
-<<<<<<< HEAD
         invoker = data.invoker
     })
     cb('ok')
@@ -91,10 +85,3 @@ RegisterCommand('del', function(source, args)
         end
     end
 end, false)
-=======
-        invoker = data.invoker,
-        vehicles = Vehicles
-    })
-    cb('ok')
-end)
->>>>>>> origin/beta
