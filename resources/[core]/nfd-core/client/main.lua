@@ -1,3 +1,4 @@
+-- Thread to check if player spawn the create him
 CreateThread(function()
 	while true do
 		Wait(100)
@@ -10,6 +11,7 @@ CreateThread(function()
 	end
 end)
 
+-- Thread to update Discord Presence
 CreateThread(function()
     while Config.DiscordPresence.IsEnabled do
         SetDiscordAppId(Config.DiscordPresence.ApplicationId)

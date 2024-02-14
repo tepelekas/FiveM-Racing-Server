@@ -1,192 +1,382 @@
 body,
 html {
-    height: 100%;
-    margin: 0;
-    font-family: 'Roboto', sans-serif;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.vehicle-shop {
-    display: flex;
-    flex-direction: row;
-    height: 100vh;
+  height: 100%;
+  margin: 0;
+  font-family: "Roboto", sans-serif;
+  user-select: none;
 }
 
 .vehicle-details-sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    background-color: rgba(18, 1, 17, 0.9);
-    color: #b19cd9;
-    padding: 20px;
-    box-shadow: inset 0 0 10px #7d4eb2, 0 0 20px #7d4eb2;
-    overflow: hidden;
-    z-index: 2;
-    backdrop-filter: blur(10px);
-    border-right: 1px solid rgba(189, 156, 217, 0.2);
+  position: fixed;
+  left: 20px;
+  top: 10%;
+  width: 250px;
+  background-color: #2c2c2c; /* Deep grey for sidebar */
+  color: #fff;
+  padding: 20px;
+  border-left: 5px solid #673ab7; /* Deep purple accent */
+  border-radius: 5px;
+  margin-bottom: 20px;
+  overflow-x: auto;
+  white-space: nowrap;
+  z-index: 2;
+  transition: all 0.25s ease-in-out; /* Smooth transition for all properties */
+}
+
+.vehicle-shop {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+}
+
+.vehicle-details-sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  background-color: rgba(18, 1, 17, 0.9);
+  color: #b19cd9;
+  padding: 20px;
+  box-shadow: inset 0 0 10px #7d4eb2, 0 0 20px #7d4eb2;
+  overflow: hidden;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+  border-right: 1px solid rgba(189, 156, 217, 0.2);
 }
 
 .details h3,
 .details p {
-    margin: 10px 0;
-    padding: 5px;
-    background: rgba(189, 156, 217, 0.1);
-    border-left: 3px solid #7d4eb2;
-    box-shadow: 0 0 5px #7d4eb2;
-    backdrop-filter: blur(5px);
+  margin: 10px 0;
+  padding: 5px;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.05
+  ); /* More subtle background for details */
+  border-left: 3px solid #9575cd; /* Lighter purple for detail lines */
+  box-shadow: 0 0 10px rgba(150, 123, 182, 0.5); /* Soft purple glow */
 }
 
 .details-title {
-    font-size: 0.8em;
-    color: #7d4eb2;
-    text-transform: uppercase;
-    font-weight: 600;
-    letter-spacing: 1px;
+  font-weight: bold;
 }
 
-#vehicle-name {
-    font-size: 1.8em;
-    font-weight: 700;
-    color: #ffffff;
-    text-shadow: 0 0 10px #7d4eb2, 0 0 20px #7d4eb2;
-}
-
-.vehicles-container {
-    flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    margin-left: 250px;
-    height: calc(100vh - 120px);
-    overflow: hidden;
-}
-
-.vehicle-image {
-    max-width: 60%;
-    max-height: 60vh;
-    margin-bottom: 2rem;
-    display: block;
-    margin: auto;
+#vehicle-name #vehicle-brand #vehicle-price #vehicle-top-speed #vehicle-doors {
+  font-size: 2em; /* More prominent vehicle name */
+  text-shadow: 0 0 15px #9575cd; /* Soft glow for the vehicle name */
 }
 
 .vehicle-slider {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    white-space: nowrap;
-    overflow-x: scroll;
-    -ms-overflow-style: none; 
-    scrollbar-width: none;
-    z-index: 10;
-  }
+  display: inline-flex;
+  justify-content: flex-start;
+  text-align: center;
+  white-space: nowrap;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 18vh; /* Adjust in harmony with the thumbnails */
+  overflow-x: auto; /* Use auto instead of scroll */
+  overflow-y: hidden; /* Hide vertical overflow */
+  scrollbar-width: none;
+  z-index: 1000;
+  visibility: visible;
+  max-width: 80%; /* Set a maximum width */
+  margin: 0 auto; /* Center the slider horizontally */
+}
 
 .vehicle-slider::-webkit-scrollbar {
-    display: none;
+  display: none; /* For the ancient Webkit souls */
 }
 
 .vehicle-thumbnail {
-    width: 150px;
-    margin-right: 10px;
+  background-color: #2c2c2c6b;
+  display: inline-block;
+  max-height: 80%; /* Set a fixed maximum width for the thumbnails */
+  margin: 3px; /* Add some space between thumbnails */
+  border: 2px solid #673ab7; /* Transparent border for all thumbnails */
+  transition: border 0.5s ease, transform 0.5s ease; /* Smooth transitions for interaction */
 }
 
 .vehicle-thumbnail img {
-    width: 100%;
+  flex: 0 0 auto;
+  width: 100px !important; /* Set a fixed width for the images */
+  max-width: 100px; /* Set a fixed width for the thumbnails */
+  max-height: 75px; /* Set a fixed height for the thumbnails */
+  height: 75px !important; /* Adjusted proportionally */
+  border: 3px solid; /* We maintain our enchanted borders */
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* A subtler shadow play */
+  transition: all 0.3s ease; /* The transition remains a smooth enchantment */
 }
 
 .vehicle-thumbnail.active {
-    transform: scale(1.2);
+  animation: pulse 1.5s infinite; /* A pulsing effect for the active vehicle */
 }
 
 .vehicle-thumbnail:hover {
-    transform: scale(1.1);
+  transform: scale(1.2);
 }
 
-.actions {
-    text-align: center;
-    margin-top: 20px;
+.vehicle-thumbnail.active img {
+  transform: scale(1.15); /* Not to tower, but to distinguish */
 }
 
-.btn {
-    display: inline-block;
-    padding: 10px 30px;
-    margin: 5px;
-    font-size: 1em;
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 2px;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    outline: none;
-    border: none;
+.vehicle-thumbnail:hover,
+.vehicle-thumbnail.active {
+  filter: brightness(120%);
+  border-color: #9575cd; /* A purple glow for hover and selection */
+  transform: translateY(
+    -10px
+  ); /* Give the feeling of 'jumping' out of the page */
 }
 
-.btn.purchase {
-    background-color: transparent;
-    border: 2px solid #0f0;
+.vehicle-thumbnail.active img,
+.vehicle-thumbnail:hover img {
+  box-shadow: 0 0 15px #9575cd; /* A soft glow to indicate selection */
+  border: 2px solid #673ab7; /* A deep purple border for active state */
 }
 
-.btn.purchase {
-    background-color: transparent;
-    border: 2px solid #0f0;
+.category-table {
+  width: 220px;
+  position: fixed;
+  top: 10%;
+  right: 15px;
+  background: #1a1a1a; /* Pure black with transparency fade */
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  border-right: 5px solid #673ab7; /* Deep purple accent */
+  border-radius: 5px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5); /* Subtle shadows */
+  transition: all 0.3s ease; /* Smooth transition for all changes */
 }
 
-.btn.purchase:hover {
-    background-color: #0d0;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+/* Style improvements for the category table */
+.category-table button {
+  padding: 15px; /* Slightly more padding for a square look */
+  border-radius: 2px; /* Less roundness for a squarer appearance */
+  background-color: #2c2c2c; /* A foundation of deep grey */
+  color: #fff;
+  text-transform: uppercase; /* Adds modernity */
+  transition: all 0.3s ease; /* Smooth transition */
 }
 
-.btn.test-drive {
-    background-color: transparent;
-    border: 2px solid rgb(255, 123, 0);
+/* Animated effects for the buttons */
+.category-table button:hover {
+  background-color: #454545; /* A slightly lighter shade for hover */
 }
 
-.btn.test-drive:hover {
-    background-color: rgb(255, 123, 0);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.category-table button.active {
+  background-color: #673ab7; /* Deep purple to signify the active state */
+  box-shadow: 0 0 10px #9575cd, inset 0 0 5px #fff; /* An inner light to signify importance */
+  border: 2px solid #9575cd; /* A lighter purple border for contrast */
 }
 
-.slider-btn {
-    padding: 10px 20px;
-    /* margin: 5px; */
-    font-size: 1em;
-    cursor: pointer;
+/* Consistent transition for active state */
+.category-table button:active {
+  transform: scale(0.98); /* Less exaggerated scale */
 }
 
-@media (max-width: 768px) {
+.color-picker {
+  width: 100%;
+  max-width: 270px; /* Adjust width as needed */
+  border-radius: 5px;
+  background-color: #2c2c2c;
+  padding: 10px;
+  margin-top: 10px;
+  position: fixed; /* Position fixed for placement relative to the viewport */
+  left: 1.2%; /* Adjust as needed for the desired horizontal position */
+  top: 42%; /* Calculate the vertical position below vehicle information */
+  z-index: 1; /* Ensure color picker appears above other elements */
+  overflow: hidden; /* Hide any overflow to prevent scrollbar */
+}
 
-    .vehicle-shop {
-        flex-direction: column;
-    }
+.color-options {
+  display: flex;
+  white-space: nowrap;
+  flex-wrap: wrap;
+  justify-content: center; /* Center the color options horizontally */
+  gap: 10px; /* Adjust as needed for spacing between color options */
+  padding: 0 10px; /* Add padding to create space at the edges */
+}
 
-    .vehicle-details-sidebar {
-        position: relative;
-        width: 100%;
-        height: auto;
-        box-shadow: none;
-    }
+.color-option {
+  /* Transition to a flexbox item for equal expansion in all directions */
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  width: 40px; /* Increase width for a bit more presence */
+  height: 40px; /* Adjust height to match the increase in width */
+  border-radius: 4px; /* Slightly more pronounced rounding than 2% */
+  padding: 5px; /* Add padding to fill out the space and give the illusion of a bigger clickable area */
+  transition: transform 0.2s ease-in-out, border 0.2s ease; /* Smooth transition for hover effects */
+  box-sizing: border-box; /* Include padding and border in the width and height calculations */
+}
 
-    .vehicles-container {
-        margin-left: 0;
-        width: 100%;
-        height: auto;
-    }
+.color-option:hover,
+.color-option.active {
+  transform: scale(1.1); /* Animate the button to scale up slightly on hover */
+  border: 2px solid #9c27b0; /* A modern purple shade for the border */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for depth */
+}
 
-    .vehicle-slider {
-        position: static;
-    }
+/* Additional style for an active state to make it more pronounced */
+.color-option.active {
+  background-color: #9c27b0; /* A nice purple shade when active */
+  color: #ffffff; /* White text or content to contrast against the purple */
+}
 
-    .vehicle-thumbnail img {
-        width: 100px;
-        height: auto;
-    }
+/* Ensuring that both hover and active states play nicely together */
+.color-option:hover.active {
+  transform: scale(1.15);
+}
 
+.loading-spinner {
+  display: none;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+  text-align: center;
+}
+
+.spinner {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.1);
+  border-top-color: #007bff;
+  animation: spin 1s ease-in-out infinite;
+}
+
+.spinner-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.category-title {
+  position: absolute;
+  top: 5%; /* Adjust as needed to position above the border */
+  left: 90.5%; /* Position at the horizontal center */
+  z-index: 99999999999999;
+  font-size: 20px; /* Adjust font size */
+  font-weight: bold; /* Make the font bold */
+  color: #ffffff; /* Set color */
+}
+
+.information-title {
+  position: absolute;
+  top: 5%; /* Adjust as needed to position above the border */
+  left: 6%; /* Position at the horizontal center */
+  z-index: 99999999999999;
+  font-size: 20px; /* Adjust font size */
+  font-weight: bold; /* Make the font bold */
+  color: #ffffff; /* Set color */
+}
+
+.colors-title {
+  position: absolute;
+  top: 38.5%; /* Adjust as needed to position above the border */
+  left: 7%; /* Position at the horizontal center */
+  z-index: 99999999999999;
+  font-size: 20px; /* Adjust font size */
+  font-weight: bold; /* Make the font bold */
+  color: #ffffff; /* Set color */
+}
+
+.button-container {
+  position: absolute;
+  bottom: 25%;
+  left: 50%;
+  transform: translateX(-50%);
+  /* Add a slight shadow effect for depth */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.purchase-button,
+.test-drive-button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 8px;
+  outline: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  will-change: transform, box-shadow; /* Optimizes for the properties that will change */
+}
+
+/* Specific styling for purchase button */
+.purchase-button {
+  background-color: #4ecca3; /* Serene green suggestive of a secure transaction */
+  margin-right: 10px;
+}
+
+.purchase-button:hover {
+  background-color: #74d3ae; /* A lighter, welcoming green on hover */
+  transform: translateY(
+    -3px
+  ); /* Slight lift to indicate readiness for action */
+  box-shadow: 0 12px 20px #2eac7b6e; /* More pronounced shadow for a "floating" effect */
+}
+
+.purchase-button:active {
+  background-color: #74d3ae; /* Return to the original color on click */
+  box-shadow: 0 8px 16px rgba(249, 168, 38, 0.2); /* Reset the shadow */
+  transform: translateY(-1px); /* A subtle press effect */
+}
+
+/* Specific styling for test-drive button */
+.test-drive-button {
+  background-color: #f9a826; /* Vibrant orange to impart energy and motion */
+  margin-left: 10px;
+}
+
+.test-drive-button:hover {
+  background-color: #ffc048; /* Energizing lighter orange on hover */
+  transform: translateY(
+    -3px
+  ); /* Slight lift to indicate readiness for action */
+  box-shadow: 0 12px 20px rgba(249, 168, 38, 0.3); /* More pronounced shadow for a "floating" effect */
+}
+
+.test-drive-button:active {
+  background-color: #f9a826; /* Return to the original color on click */
+  box-shadow: 0 8px 16px rgba(249, 168, 38, 0.2); /* Reset the shadow */
+  transform: translateY(-1px); /* A subtle press effect */
+}
+
+/* Focus state for accessibility, which brightens up the border */
+.purchase-button:focus,
+.test-drive-button:focus {
+  outline: 4px solid #fff;
+  outline-offset: 2px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0px rgba(147, 112, 219, 0.5);
+  }
+  100% {
+    box-shadow: 0 0 0 15px rgba(147, 112, 219, 0);
+  }
 }

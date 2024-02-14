@@ -13,7 +13,7 @@ function CreateDatabasePlayer(playerId, identifier, license, group, money, name,
         money = money,
         group = group,
         identifier = identifier,
-        name = name,
+        name = GetPlayerName(playerId),
         source = playerId,
         variables = {},
         metadata = metadata,
@@ -24,10 +24,7 @@ function CreateDatabasePlayer(playerId, identifier, license, group, money, name,
 	_ExecuteCommand(('add_principal identifier.%s group.%s'):format(self.license, self.group))
 
 	local stateBag = Player(self.source).state
-	stateBag:set("identifier", self.identifier, true)
-	stateBag:set("license", self.license, true)
 	stateBag:set("group", self.group, true)
-	stateBag:set("name", self.name, true)
 	stateBag:set("metadata", self.metadata, true)
 
 	function self.triggerEvent(eventName, ...)
@@ -128,11 +125,6 @@ function CreateDatabasePlayer(playerId, identifier, license, group, money, name,
 
     function self.getName()
         return self.name
-    end
-
-    function self.setName(newName)
-        self.name = newName
-        Player(self.source).state:set("name", self.name, true)
     end
 
     function self.showNotification(msg, notifyType, length)

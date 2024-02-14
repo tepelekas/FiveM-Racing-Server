@@ -51,7 +51,8 @@ AddEventHandler("nfd:server:playerLogout", function(playerId, cb)
 	if Player then
 		TriggerEvent("nfd:server:playerDropped", playerId)
 
-		Core.playersByLicense[Player.identifier] = nil
+		Core.playersByLicense[Player.license] = nil
+
 		Core.SavePlayer(Player, function()
 			NFD.Players[playerId] = nil
 			if cb then

@@ -73,6 +73,9 @@ RegisterNetEvent('nfd:client:playerLoaded', function(Player, _, skin)
 		end)
 	end
 
+	DisplayRadar(false)
+	LocalPlayer.state.radar = false
+
 	if Config.DisableDispatchServices then
 		for i = 1, 15 do
 			EnableDispatchService(i, false)
