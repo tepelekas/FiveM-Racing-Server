@@ -36,7 +36,7 @@ function onPlayerJoined(playerId)
             if identifier then
                 loadPlayer(identifier, license, playerId, false)
             else
-                createPlayer(identifier, playerId)
+                createPlayer(license, playerId)
             end
         end
     else
